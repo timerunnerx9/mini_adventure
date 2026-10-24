@@ -1,0 +1,70 @@
+:root {
+  --brand: #0a7ea4;
+  --brand-deep: #086484;
+  --accent: #ff5a1f;
+  --accent-deep: #e04812;
+  --success: #1fa971;
+  --ink: #14212b;
+  --ink-muted: #4a5a66;
+  --line: #c5d0d8;
+  --surface: #ffffff;
+  --sky-top: #7ec8e3;
+  --sky-mid: #c9e8f2;
+  --ground: #ede6d9;
+  --asphalt: #2a333b;
+  --font-display: var(--font-bebas), "Arial Narrow", Impact, sans-serif;
+  --font-body: var(--font-outfit), "Trebuchet MS", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, #9fd6ea 0%, transparent 55%),
+    radial-gradient(900px 420px at 0% 10%, #f0d9b8 0%, transparent 50%),
+    linear-gradient(180deg, var(--sky-mid) 0%, var(--ground) 42%, #f7f3ea 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
