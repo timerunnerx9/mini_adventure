@@ -1,0 +1,311 @@
+.page {
+  min-height: 100vh;
+}
+
+/* —— Hero: one composition, full-bleed visual —— */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroMedia :global(.heroCar) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroMedia :global(.carRide) {
+  transform-origin: 520px 420px;
+  animation: driveIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.heroMedia :global(.laneDash) {
+  animation: dashScroll 2.8s linear infinite;
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(237, 230, 217, 0.92) 0%,
+      rgba(237, 230, 217, 0.72) 38%,
+      rgba(237, 230, 217, 0.12) 62%,
+      transparent 78%
+    ),
+    linear-gradient(0deg, rgba(20, 33, 43, 0.28) 0%, transparent 38%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 2.5rem, 40rem);
+  margin: 0 auto 0 6vw;
+  padding: 5.5rem 0 4.5rem;
+  animation: riseIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.brand {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 9vw, 5.75rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: var(--brand-deep);
+  text-transform: uppercase;
+}
+
+.headline {
+  margin: 0 0 0.85rem;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.2vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.lede {
+  margin: 0 0 1.75rem;
+  max-width: 32ch;
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+}
+
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+  align-items: center;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.35rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.9rem 1.35rem;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.ctaPrimary:hover {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+.ctaSecondary {
+  color: var(--brand-deep);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--brand) 45%, transparent);
+  padding-bottom: 0.1rem;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.ctaSecondary:hover {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+/* —— Sections —— */
+.section {
+  width: min(100% - 2.5rem, 68rem);
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}
+
+.sectionHead {
+  margin-bottom: 2rem;
+  max-width: 36rem;
+}
+
+.sectionEyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.sectionTitle {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.sectionLede {
+  margin: 0;
+  color: var(--ink-muted);
+  max-width: 42ch;
+}
+
+.carList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .carList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.carItem {
+  padding-top: 1rem;
+  border-top: 4px solid var(--car-accent, var(--brand));
+  animation: riseIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.carItem:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.carItem:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.carItem:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.carName {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.carTagline {
+  margin: 0 0 0.65rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.carPersonality {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+}
+
+.carError {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.waitlistSection {
+  background:
+    linear-gradient(135deg, rgba(10, 126, 164, 0.1), rgba(255, 90, 31, 0.08)),
+    color-mix(in srgb, var(--surface) 70%, transparent);
+  border-block: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+}
+
+.waitlistInner {
+  width: min(100% - 2.5rem, 68rem);
+  margin: 0 auto;
+  padding: 4rem 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 800px) {
+  .waitlistInner {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 3rem;
+  }
+}
+
+.footer {
+  width: min(100% - 2.5rem, 68rem);
+  margin: 0 auto;
+  padding: 2rem 0 2.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.footerBrand {
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+}
+
+@keyframes driveIn {
+  from {
+    transform: translateX(18%) translateY(6%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes dashScroll {
+  to {
+    stroke-dashoffset: -64;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .heroContent {
+    margin: 0 auto;
+    width: min(100% - 2rem, 40rem);
+    padding: 4.5rem 0 3.25rem;
+    text-align: left;
+  }
+
+  .heroScrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(237, 230, 217, 0.55) 0%,
+        rgba(237, 230, 217, 0.25) 35%,
+        rgba(20, 33, 43, 0.35) 100%
+      );
+  }
+
+  .headline {
+    max-width: none;
+  }
+}
